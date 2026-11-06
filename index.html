@@ -1,0 +1,356 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>WA Lawn Care</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+/* Layout: investor-relations feel. Slim top bar with the real logo, split hero (headline + crew photo), services as a ruled schedule, irrigation video block, photo wall, contact band. */
+:root {
+  --bg: #fbfcfa;
+  --surface: #eff4ec;
+  --fg: #111a12;
+  --muted: #4d5b4f;
+  --rule: #d6ddd3;
+  --green: #2e7d10;
+  --green-ink: #ffffff;
+  --band: #101a12;
+  --band-fg: #f4f8f2;
+  --band-muted: #b4c2b5;
+  --focus: #2e7d10;
+  --logo-l: block;
+  --logo-d: none;
+  --display: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b120c; --surface: #131d14; --fg: #e9f0e7; --muted: #a3b2a4; --rule: #263427;
+    --green: #6dbf3d; --green-ink: #0a1a06; --band: #15231a; --band-fg: #f4f8f2; --band-muted: #a9b9aa;
+    --focus: #8fd35f; --logo-l: none; --logo-d: block;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b120c; --surface: #131d14; --fg: #e9f0e7; --muted: #a3b2a4; --rule: #263427;
+  --green: #6dbf3d; --green-ink: #0a1a06; --band: #15231a; --band-fg: #f4f8f2; --band-muted: #a9b9aa;
+  --focus: #8fd35f; --logo-l: none; --logo-d: block;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body);
+  padding-block: 0; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 1080px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+.eyebrow { font: 500 12px/1.3 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); }
+
+/* top bar */
+header { border-bottom: 1px solid var(--rule); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; flex-wrap: wrap; }
+.brand { display: inline-flex; text-decoration: none; }
+.brand img { height: 62px; width: auto; }
+.logo-l { display: var(--logo-l); }
+.logo-d { display: var(--logo-d); }
+.tools { display: flex; align-items: center; gap: 20px; }
+nav { display: flex; gap: 22px; font-size: 15px; font-weight: 500; }
+nav a { text-decoration: none; color: var(--muted); }
+nav a:hover { color: var(--fg); }
+.lang { display: inline-flex; border: 1px solid var(--rule); border-radius: 4px; overflow: hidden; }
+.lang button { font: 500 12px/1 var(--mono); letter-spacing: 0.08em; padding: 9px 11px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+
+/* hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding-block: clamp(36px, 6vw, 80px); }
+.hero h1 { font-size: clamp(34px, 5.2vw, 56px); margin-block: 18px 20px; }
+.hero p.lead { font-size: 19px; color: var(--muted); max-width: 46ch; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px 16px; margin-top: 32px; align-items: center; }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--green); color: var(--green-ink); font: 600 16px/1 var(--body); padding: 16px 22px; border-radius: 3px; text-decoration: none; border: 0; cursor: pointer; }
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--fg); border: 1px solid var(--fg); }
+.crew { margin: 0; position: relative; border-radius: 3px; overflow: hidden; background: var(--surface); }
+.crew img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; }
+.crew figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 18px; font: 500 12px/1.4 var(--mono); letter-spacing: 0.12em; text-transform: uppercase;
+  background: var(--band); color: var(--band-fg); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+}
+
+/* sections */
+section { padding-block: clamp(40px, 6vw, 72px); border-top: 1px solid var(--rule); }
+.head { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 24px 48px; margin-bottom: 36px; align-items: end; }
+.head h2 { font-size: clamp(26px, 3.4vw, 36px); margin-top: 14px; }
+.head p { color: var(--muted); max-width: 52ch; }
+.sched { width: 100%; border-collapse: collapse; }
+.sched th { font: 500 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 0 16px 12px 0; border-bottom: 2px solid var(--fg); }
+.sched td { padding: 20px 16px 20px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.sched td:first-child { font: 600 20px/1.3 var(--display); width: 34%; }
+.sched td:last-child { color: var(--muted); padding-right: 0; }
+.tbl { overflow-x: auto; }
+
+/* irrigation video */
+.split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(24px, 5vw, 64px); align-items: center; }
+.split h2 { font-size: clamp(26px, 3.4vw, 36px); margin-block: 14px 16px; }
+.split p { color: var(--muted); max-width: 46ch; }
+.split .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding: 0; list-style: none; }
+.split .tags li { font: 500 12px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--rule); padding: 9px 11px; border-radius: 3px; color: var(--fg); }
+.vid { display: block; width: 100%; max-width: 420px; max-height: 70vh; aspect-ratio: 3 / 4; object-fit: cover; background: #000; border-radius: 3px; margin-inline: auto; }
+
+/* photo wall */
+.wall { columns: 3 240px; column-gap: 14px; }
+.shot { display: block; width: 100%; margin: 0 0 14px; padding: 0; border: 0; background: var(--surface); cursor: zoom-in; border-radius: 3px; overflow: hidden; break-inside: avoid; }
+.shot img { display: block; width: 100%; height: auto; transition: transform .25s ease; }
+.shot:hover img { transform: scale(1.03); }
+dialog { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 96vh; }
+dialog::backdrop { background: rgba(5, 12, 24, 0.86); }
+dialog img { display: block; max-width: 96vw; max-height: 92vh; width: auto; height: auto; border-radius: 3px; }
+dialog button { position: absolute; top: 10px; right: 10px; font: 600 14px/1 var(--body); padding: 10px 14px; border: 0; border-radius: 3px; background: #fff; color: #101a12; cursor: pointer; }
+
+/* contact band */
+.band { background: var(--band); color: var(--band-fg); margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); border-top: 0; }
+.band .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 56px; align-items: center; }
+.band h2 { font-size: clamp(28px, 4vw, 42px); }
+.band .eyebrow { color: #86d05a; }
+.band p { color: var(--band-muted); margin-top: 14px; max-width: 44ch; }
+.card { border: 1px solid rgba(255,255,255,0.22); border-radius: 3px; padding: 24px; display: grid; gap: 18px; }
+.k { font: 500 11px/1 var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--band-muted); display: block; margin-bottom: 8px; }
+.phone { font: 600 clamp(28px, 5vw, 38px)/1.1 var(--display); letter-spacing: 0.01em; user-select: all; }
+.lic { font: 500 18px/1.2 var(--mono); user-select: all; }
+.where a { text-decoration: underline; text-underline-offset: 4px; }
+.where { font: 500 18px/1.3 var(--body); }
+.card .btn { background: #fff; color: #101a12; }
+.card .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.5); }
+.card .row { display: flex; gap: 10px; flex-wrap: wrap; }
+footer { padding-block: 28px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+@media (max-width: 820px) {
+  .hero, .head, .split, .band .grid { grid-template-columns: minmax(0, 1fr); }
+  .sched td:first-child { width: 42%; }
+  nav { display: none; }
+  .brand img { height: 54px; }
+  .wall { columns: 2 150px; column-gap: 10px; }
+  .shot { margin-bottom: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none; } }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: filter .15s ease; } }
+</style>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="WA Lawn Care"><img class="logo-l" src="img/logo.png" width="700" height="480" alt="WA Lawn Care logo"><img class="logo-d" src="img/logo-dark.png" width="700" height="480" alt="" aria-hidden="true"></a>
+    <div class="tools">
+      <nav aria-label="Main">
+        <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+        <a href="#work" data-en="Our work" data-es="Nuestro trabajo">Our work</a>
+        <a href="#contact" data-en="Contact" data-es="Contacto">Contact</a>
+        <a href="https://www.instagram.com/wa.kern.services/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="b-en" aria-pressed="true">EN</button>
+        <button type="button" id="b-es" aria-pressed="false">ES</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow" data-en="Bakersfield, CA · Lic. #157881" data-es="Bakersfield, CA · Lic. #157881">Bakersfield, CA · Lic. #157881</span>
+      <h1 data-en="Neglected yards, made presentable again." data-es="Jardines descuidados, presentables otra vez.">Neglected yards, made presentable again.</h1>
+      <p class="lead" data-en="We specialize in bringing rough-looking yards back into shape. Landscape maintenance, weed control, sprinkler installation and irrigation repair for Bakersfield homes." data-es="Nuestra especialidad es recuperar jardines que se ven mal. Mantenimiento de jardines, control de maleza, instalación de sprinklers y reparación de riego para casas en Bakersfield.">We specialize in bringing rough-looking yards back into shape. Landscape maintenance, weed control, sprinkler installation and irrigation repair for Bakersfield homes.</p>
+      <div class="cta-row">
+        <a class="btn" href="#contact" data-en="Request an estimate" data-es="Pedir un presupuesto">Request an estimate</a>
+        <a class="btn ghost" href="#work" data-en="See our work" data-es="Ver nuestro trabajo">See our work</a>
+      </div>
+    </div>
+    <figure class="crew">
+      <img src="img/mowing-curve.jpg" width="1050" height="1400" alt="A WA Lawn Care crew member mowing a front lawn along a curved edge">
+      <figcaption><span data-en="Bakersfield, California" data-es="Bakersfield, California">Bakersfield, California</span><span data-en="On the job" data-es="En el trabajo">On the job</span></figcaption>
+    </figure>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-en="Services" data-es="Servicios">Services</span>
+          <h2 data-en="What we take care of" data-es="De qué nos encargamos">What we take care of</h2>
+        </div>
+        <p data-en="Our specialty is fixing up yards, from overgrown and neglected to presentable. Pick a recurring plan or a one-time visit, and tell us about your yard." data-es="Nuestra especialidad es arreglar jardines, desde descuidados y crecidos hasta presentables. Elige un plan recurrente o una visita única y cuéntanos de tu jardín.">Our specialty is fixing up yards, from overgrown and neglected to presentable. Pick a recurring plan or a one-time visit, and tell us about your yard.</p>
+      </div>
+      <div class="tbl">
+        <table class="sched">
+          <thead><tr>
+            <th data-en="Service" data-es="Servicio">Service</th>
+            <th data-en="What it includes" data-es="Qué incluye">What it includes</th>
+          </tr></thead>
+          <tbody>
+            <tr><td data-en="General landscape maintenance" data-es="Mantenimiento general de jardines">General landscape maintenance</td><td data-en="Mowing, edging, trimming and cleanups on a recurring plan or a one-time visit, so the whole yard stays in order." data-es="Corte, bordes, recorte y limpieza con plan recurrente o visita única, para que todo el jardín se mantenga en orden.">Mowing, edging, trimming and cleanups on a recurring plan or a one-time visit, so the whole yard stays in order.</td></tr>
+            <tr><td data-en="Weed control" data-es="Control de maleza">Weed control</td><td data-en="Treatment of weeds in lawns and beds, so the turf can fill back in and the yard stays clean." data-es="Tratamiento de maleza en céspedes y camas de plantas, para que el pasto se recupere y el jardín se mantenga limpio.">Treatment of weeds in lawns and beds, so the turf can fill back in and the yard stays clean.</td></tr>
+            <tr><td data-en="Sprinkler installation" data-es="Instalación de sprinklers">Sprinkler installation</td><td data-en="New sprinkler systems and additions to an existing one, set up to cover your lawn and beds." data-es="Sistemas de sprinklers nuevos y ampliaciones de uno existente, instalados para cubrir tu césped y tus camas de plantas.">New sprinkler systems and additions to an existing one, set up to cover your lawn and beds.</td></tr>
+            <tr><td data-en="Irrigation system repair" data-es="Reparación de sistemas de riego">Irrigation system repair</td><td data-en="Broken lines and sprinkler heads fixed on site, so the lawn keeps getting water." data-es="Líneas y cabezas de sprinkler rotas reparadas en sitio, para que el césped siga recibiendo agua.">Broken lines and sprinkler heads fixed on site, so the lawn keeps getting water.</td></tr>
+            <tr><td data-en="Valve replacement" data-es="Cambio de válvulas">Valve replacement</td><td data-en="Worn or stuck irrigation valves replaced so each zone turns on and off as it should." data-es="Válvulas de riego gastadas o atoradas reemplazadas para que cada zona abra y cierre como debe.">Worn or stuck irrigation valves replaced so each zone turns on and off as it should.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="irrigation">
+    <div class="wrap split">
+      <div>
+        <span class="eyebrow" data-en="On the job" data-es="En el trabajo">On the job</span>
+        <h2 data-en="Sprinkler line repair, done on site" data-es="Reparación de línea de riego, en sitio">Sprinkler line repair, done on site</h2>
+        <p data-en="When a line breaks or a head stops working, we open up the edge, repair it and get the water running again, without tearing up the lawn." data-es="Cuando se rompe una línea o una cabeza deja de funcionar, abrimos el borde, la reparamos y volvemos a poner el agua, sin destruir el césped.">When a line breaks or a head stops working, we open up the edge, repair it and get the water running again, without tearing up the lawn.</p>
+        <ul class="tags">
+          <li data-en="Lines" data-es="Líneas">Lines</li>
+          <li data-en="Sprinkler heads" data-es="Cabezas">Sprinkler heads</li>
+          <li data-en="Valves" data-es="Válvulas">Valves</li>
+          <li data-en="Installations" data-es="Instalaciones">Installations</li>
+        </ul>
+      </div>
+      <video class="vid" controls playsinline preload="metadata" poster="video/poster.jpg" aria-label="A WA Lawn Care crew member repairing a sprinkler line at the edge of a lawn">
+        <source src="video/work.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <span class="eyebrow" data-en="Our work" data-es="Nuestro trabajo">Our work</span>
+          <h2 data-en="Yards we look after in Bakersfield" data-es="Jardines que cuidamos en Bakersfield">Yards we look after in Bakersfield</h2>
+        </div>
+        <p data-en="Front lawns, backyards and the irrigation behind them. Tap a photo to see it larger." data-es="Jardines al frente, patios traseros y el riego que los mantiene. Toca una foto para verla más grande.">Front lawns, backyards and the irrigation behind them. Tap a photo to see it larger.</p>
+      </div>
+      <div class="wall" id="wall">
+        <button class="shot" type="button"><img loading="lazy" src="img/lawn-sidewalk.jpg" width="1050" height="1400" alt="Front lawn with clean edges along a sidewalk and a shade tree"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/backyard-stripes.jpg" width="1400" height="1050" alt="Backyard lawn with mowing stripes beside a wood fence"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/house-sign.jpg" width="1050" height="1400" alt="Front lawn of a stone and stucco house with a WA Lawn Care yard sign"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/front-lawn-curb.jpg" width="1179" height="884" alt="Front lawn trimmed along a curved curb in front of a two-car garage"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/lawn-bed.jpg" width="1050" height="1400" alt="Curved lawn bordered by mulch beds and flowering shrubs"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/mowing-palms.jpg" width="1050" height="1400" alt="Crew member mowing a lawn under palm trees"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/backyard-patio.jpg" width="1050" height="1400" alt="Backyard lawn next to a covered patio"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/treatment-spray.jpg" width="1050" height="1400" alt="Crew member spraying a lawn treatment"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/front-palms.jpg" width="1400" height="1050" alt="Front lawn with palm trees and sprinklers running"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/blower-cleanup.jpg" width="1050" height="1400" alt="Crew member leaf blowing a front yard"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/driveway-edges.jpg" width="900" height="1200" alt="Lawn edged cleanly along a driveway"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/yard-sign-brick.jpg" width="841" height="1400" alt="WA Lawn Care yard sign on a lawn in front of a brick house"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/sprinkler-repair.jpg" width="1050" height="1400" alt="Crew member repairing a sprinkler line at the edge of a walk"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/valve-box.jpg" width="1050" height="1400" alt="Irrigation valve box opened for service"></button>
+        <button class="shot" type="button"><img loading="lazy" src="img/controller.jpg" width="1400" height="1050" alt="Outdoor sprinkler controller on a wall"></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="band">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow" data-en="Contact" data-es="Contacto">Contact</span>
+        <h2 style="margin-top:14px" data-en="Ask for an estimate today." data-es="Pide tu presupuesto hoy.">Ask for an estimate today.</h2>
+        <p data-en="Call or text the number and tell us about your yard." data-es="Llama o escribe al número y cuéntanos de tu jardín.">Call or text the number and tell us about your yard.</p>
+      </div>
+      <div class="card">
+        <div>
+          <span class="k" data-en="Phone" data-es="Teléfono">Phone</span>
+          <div class="phone" id="phone">(661) 404-2698</div>
+        </div>
+        <div>
+          <span class="k" data-en="Based in" data-es="Ubicación">Based in</span>
+          <div class="where">Bakersfield, CA</div>
+        </div>
+        <div>
+          <span class="k" data-en="License" data-es="Licencia">License</span>
+          <div class="lic">Lic. #157881</div>
+        </div>
+        <div>
+          <span class="k">Instagram</span>
+          <div class="where"><a href="https://www.instagram.com/wa.kern.services/" target="_blank" rel="noopener">@wa.kern.services</a></div>
+        </div>
+        <div class="row">
+          <a class="btn" href="tel:+16614042698" data-en="Call now" data-es="Llamar ahora">Call now</a>
+          <button class="btn ghost" type="button" id="copy" data-en="Copy number" data-es="Copiar número">Copy number</button>
+        </div>
+        <p id="copied" class="sr" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap">
+  <footer>
+    <span>© WA Lawn Care · Bakersfield, CA</span>
+    <span>Lic. #157881</span>
+  </footer>
+</div>
+
+<dialog id="lb" aria-label="Photo viewer">
+  <img id="lb-img" src="" alt="">
+  <button type="button" id="lb-close" data-en="Close" data-es="Cerrar">Close</button>
+</dialog>
+
+<script>
+(function () {
+  var LANG_KEY = "wa-lang";
+  var nodes = document.querySelectorAll("[data-en]");
+  var bEn = document.getElementById("b-en"), bEs = document.getElementById("b-es");
+  var copyBtn = document.getElementById("copy");
+  var copied = document.getElementById("copied");
+  var current = "en";
+
+  function apply(lang) {
+    current = lang;
+    for (var i = 0; i < nodes.length; i++) {
+      var t = nodes[i].getAttribute("data-" + lang);
+      if (t) nodes[i].textContent = t;
+    }
+    document.documentElement.lang = lang;
+    bEn.setAttribute("aria-pressed", lang === "en");
+    bEs.setAttribute("aria-pressed", lang === "es");
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+  }
+
+  var start = "en";
+  try {
+    var saved = localStorage.getItem(LANG_KEY);
+    if (saved === "en" || saved === "es") start = saved;
+    else if ((navigator.language || "").toLowerCase().indexOf("es") === 0) start = "es";
+  } catch (e) {}
+  apply(start);
+
+  bEn.addEventListener("click", function () { apply("en"); });
+  bEs.addEventListener("click", function () { apply("es"); });
+
+  copyBtn.addEventListener("click", function () {
+    var num = "(661) 404-2698";
+    var msg = current === "es" ? "Número copiado" : "Number copied";
+    function done() { copied.textContent = msg; copyBtn.textContent = msg; setTimeout(function () { apply(current); }, 1800); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("phone"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    try { navigator.clipboard.writeText(num).then(done, fallback); } catch (e) { fallback(); }
+  });
+
+  /* photo viewer */
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img");
+  document.getElementById("wall").addEventListener("click", function (e) {
+    var img = e.target.closest ? e.target.closest(".shot") : null;
+    if (!img) return;
+    var pic = img.querySelector("img");
+    lbImg.src = pic.src; lbImg.alt = pic.alt;
+    if (lb.showModal) { try { lb.showModal(); } catch (err) { lb.setAttribute("open", ""); } }
+    else lb.setAttribute("open", "");
+  });
+  function closeLb() { if (lb.close) lb.close(); else lb.removeAttribute("open"); }
+  document.getElementById("lb-close").addEventListener("click", closeLb);
+  lb.addEventListener("click", function (e) { if (e.target === lb) closeLb(); });
+})();
+</script>
+
+</body></html>
