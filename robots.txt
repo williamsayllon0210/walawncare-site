@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://walawncare.com/sitemap.xml
